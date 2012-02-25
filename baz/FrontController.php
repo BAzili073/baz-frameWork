@@ -1,5 +1,5 @@
 <?
-class FrontController {
+class Baz_FrontController {
   function dispatch(){
     $uri = $_SERVER['REQUEST_URI'];
     $arr = explode("/","$uri");
@@ -7,9 +7,12 @@ class FrontController {
       $arr[1] = "index";
     if (!$arr[2])
       $arr[2] = "index";
-    print_r ($arr);
     $arr[1]=ucfirst(strtolower($arr[1]));
     $arr[2]=ucfirst(strtolower($arr[2]));
+    $classname = $arr[1]."_Controller";
+    $controller = new $classname;
+    $controller->$arr[2]."Action";
+        print_r ($arr);
   }
 
 }
