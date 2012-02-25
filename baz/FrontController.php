@@ -11,8 +11,8 @@ class Baz_FrontController {
     $arr[2]=ucfirst(strtolower($arr[2]));
     $classname = $arr[1]."_Controller";
     $controller = new $classname;
-    $controller->$arr[2]."Action";
-        print_r ($arr);
+    $action = $arr[2]."Action";
+    $controller->$action();
   }
 
 }
